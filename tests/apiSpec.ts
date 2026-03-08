@@ -1,13 +1,12 @@
-import supertest from "supertest";
+import request from "supertest";
 import app from "../src/index";
 
-const request = supertest(app);
-
-describe("Test endpoint responses", () => {
-  it("gets the api endpoint", async () => {
-    const response = await request.get(
+describe("API Endpoint Tests", () => {
+  it("returns resized image", async () => {
+    const response = await request(app).get(
       "/api/images?filename=cse&width=200&height=200",
     );
+
     expect(response.status).toBe(200);
   });
 });
