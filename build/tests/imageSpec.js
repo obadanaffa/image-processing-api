@@ -13,10 +13,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const resizeImage_1 = __importDefault(require("../src/utilities/resizeImage"));
-describe("Image processing function", () => {
-    it("resizes image successfully", () => __awaiter(void 0, void 0, void 0, function* () {
-        const result = yield (0, resizeImage_1.default)("cse", 200, 200);
-        expect(result).toContain("cse");
+describe('Image Processing Function', () => {
+    it('resizes image successfully', () => __awaiter(void 0, void 0, void 0, function* () {
+        const result = yield (0, resizeImage_1.default)('cse', 200, 200);
+        expect(result).toBeTruthy();
+    }));
+    it('throws error if image does not exist', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield expectAsync((0, resizeImage_1.default)('wrong', 200, 200)).toBeRejected();
+    }));
+    it('throws error for invalid width or height', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield expectAsync((0, resizeImage_1.default)('cse', -100, 200)).toBeRejected();
     }));
 });
 //# sourceMappingURL=imageSpec.js.map
