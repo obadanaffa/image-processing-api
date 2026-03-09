@@ -15,4 +15,3 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 exports.default = app;
-//# sourceMappingURL=index.js.map

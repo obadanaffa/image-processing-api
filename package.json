@@ -8,8 +8,10 @@
     "format": "prettier --write src/**/*.ts tests/**/*.ts",
     "build": "tsc",
     "start": "node build/index.js",
-    "test": "jasmine"
+    "dev": "nodemon src/index.ts",
+"test": "jasmine"
   },
+
   "keywords": [],
   "author": "Obada Naffa",
   "license": "ISC",
